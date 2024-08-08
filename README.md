@@ -85,19 +85,19 @@ The following table shows the metrics we measured in our insecure environment fo
 
 ## Attack Maps After Hardening / Security Controls
 
-  >**Note**: All map queries actually returned no results due to no instances of malicious activity for the 24-hour period after hardening.
+  >**Note**: All map queries returned no results, indicating there were no instances of malicious activity detected during the 24-hour period following the hardening process.
 
 ## Metrics After Hardening / Security Controls
 
-The following table shows the metrics we measured in our environment for another 24 hours, but after we applied security controls:
+The following table shows the metrics we measured in our environment for an additional 24 hours, after we applied security controls:
 <br />
-`Start Time:` 2024-02-19T18:12:23 <br/>
-`Stop Time:` 2024-02-20T18:12:23
+`Start Time:` 2024-08-07T17:58:14 <br/>
+`Stop Time:` 2024-08-08T17:58:14
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvent            | 865
-| Syslog                   | 19
+| SecurityEvent            | 9290
+| Syslog                   | 1
 | SecurityAlert            | 0
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
@@ -105,18 +105,18 @@ The following table shows the metrics we measured in our environment for another
 ## Change after Securing Environment
 | Metric                                          | Percent
 | ----------------------------------------------- | -----
-| Security Event (Windows VM)                     |  -98.04%
-| Syslog (Linux VM)                               |  -99.33%
+| Security Event (Windows VM)                     |  -87.66%
+| Syslog (Linux VM)                               |  -99.96%
 | Security Alert (Microsoft Defender for Cloud)   |  -100.00%
 | Security Incident (Sentinel Incidents)          |  -100.00%
 | NSG Inbound Malicious Flows Allowed             |  -100.00%
 
 
 ## Reflection
-Creating this lab and analyzing real-world traffic with attack maps and KQL data has been both challenging and gratifying. It was amazing to see it all come together, illustrating both an insecure and a secure environment. Before implementing security controls, the environment was flooded with malicious traffic. While the resources were left vulnerable, I observed various IP addresses and usernames that bad actors attempted to use to access my virtual machines. However, after completing the hardening process and waiting 24 hours, it was remarkable to see no signs of allowed traffic from these bad actors on the public internet – a truly satisfying outcome.
+Creating this lab and analyzing real-world traffic using attack maps and KQL data has been both challenging and gratifying. It was amazing to see everything come together, demonstrating the stark difference between an insecure and a secure environment. Before implementing security controls, the environment was inundated with malicious traffic. While the resources were still vulnerable, I observed various IP addresses and usernames that bad actors attempted to use to access my virtual machines. However, after completing the hardening process and waiting 24 hours, it was remarkable to see no signs of allowed traffic from these bad actors on the public internet – a truly satisfying outcome.
 
 ## Conclusion
 
-In this project, we set up a small-scale honeynet on the Microsoft Azure platform and effectively integrated various log sources into a specific Log Analytics workspace. A key component of this setup was Microsoft Sentinel, which actively produced alerts and initiated incidents based on the ingested logs. We carefully measured detailed metrics in the vulnerable environment before applying any security controls and then conducted a follow-up evaluation after strengthening the infrastructure. The standout result was a marked decrease in the number of security events and incidents, clearly demonstrating the effectiveness of the security measures we put in place.
+In this project, we set up a small-scale honeynet on the Microsoft Azure platform and effectively integrated various log sources into a specific Log Analytics workspace. A key component of this setup was Microsoft Sentinel, which actively generated alerts and initiated incidents based on the ingested logs. We meticulously measured detailed metrics in the vulnerable environment before applying any security controls and then conducted a follow-up evaluation after fortifying the infrastructure. The standout result was a significant decrease in the number of security events and incidents, clearly demonstrating the effectiveness of the security measures we implemented.
 
-I should recognize that if the network's resources had been in active use by regular users, it's likely that a higher volume of security events and alerts might have been generated in the 24-hour period following the implementation of the security controls.
+It’s important to acknowledge that if the network's resources had been in active use by regular users, it’s likely that a higher volume of security events and alerts might have been generated in the 24-hour period following the implementation of the security controls.
